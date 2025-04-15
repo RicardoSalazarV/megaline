@@ -1,3 +1,5 @@
+
+https://megaline.onrender.com
 Descripción del Proyecto
 Este proyecto consiste en un dashboard interactivo desarrollado con Streamlit que permite realizar un análisis exhaustivo de los datos de la compañía de telefonía Megaline. El objetivo principal es comparar el comportamiento y la rentabilidad de sus dos planes principales: "Surf" y "Ultimate". A través de visualizaciones interactivas y análisis estadísticos, se busca proporcionar información valiosa sobre el uso de los servicios, la distribución de usuarios, los ingresos generados y las tendencias en el comportamiento de los clientes.
 
