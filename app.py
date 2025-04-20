@@ -1145,5 +1145,3 @@ st.markdown("""
     <p>Análisis basado en datos de la compañía de telefonía Megaline</p>
 </div>
 """, unsafe_allow_html=True)
-
-# Ejecutar la aplicación localmente con: streamlit run app.py
