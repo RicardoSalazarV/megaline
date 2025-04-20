@@ -57,14 +57,13 @@ Este dashboard interactivo presenta un análisis completo de los datos de la com
 comparando el comportamiento y rentabilidad de sus dos planes principales: "Surf" y "Ultimate".
 """)
 
-# Creamos pestañas para organizar el contenido
+#pestañas para organizar el contenido
 tabs = st.tabs(["📊 Resumen", "📞 Llamadas", "💬 Mensajes", "🌐 Internet", "💰 Ingresos", "🧪 Pruebas Estadísticas", "📝 Conclusiones"])
 
 # Función para cargar datos
 @st.cache_data
 def load_data():
     try:
-        # En un entorno real, cargaríamos desde archivos
         # Para demostración, generamos datos sintéticos similares a los del notebook
         
         # Planes
@@ -268,19 +267,19 @@ with tabs[1]:
         )
         
         fig = px.bar(
-            avg_call_duration,
-            x='month',
-            y='avg_duration',
-            color='plan_name',
-            barmode='group',
-            title='Duración Promedio de Llamadas por Plan y Mes',
-            labels={
-                'month': 'Mes',
-                'avg_duration': 'Duración Promedio (minutos)',
-                'plan_name': 'Plan'
-            },
-            color_discrete_map={'surf': '#1E88E5', 'ultimate': '#43A047'}
-        )
+    avg_call_duration,
+    x=avg_call_duration['month'].astype(str),  # Conversión directa a string
+    y='avg_duration',
+    color='plan_name',
+    barmode='group',
+    title='Duración Promedio de Llamadas por Plan y Mes',
+    labels={
+        'x': 'Mes', 
+        'avg_duration': 'Duración Promedio (minutos)',
+        'plan_name': 'Plan'
+    },
+    color_discrete_map={'surf': '#1E88E5', 'ultimate': '#43A047'}
+)
         
         st.plotly_chart(fig, use_container_width=True)
         
@@ -422,19 +421,19 @@ with tabs[2]:
         )
         
         fig = px.bar(
-            avg_messages,
-            x='month',
-            y='avg_messages',
-            color='plan_name',
-            barmode='group',
-            title='Promedio de Mensajes por Plan y Mes',
-            labels={
-                'month': 'Mes',
-                'avg_messages': 'Promedio de Mensajes',
-                'plan_name': 'Plan'
-            },
-            color_discrete_map={'surf': '#1E88E5', 'ultimate': '#43A047'}
-        )
+    avg_messages,
+    x=avg_messages['month'].astype(str),  # Conversión directa a string
+    y='avg_messages',
+    color='plan_name',
+    barmode='group',
+    title='Promedio de Mensajes por Plan y Mes',
+    labels={
+        'x': 'Mes',  
+        'avg_messages': 'Promedio de Mensajes',
+        'plan_name': 'Plan'
+    },
+    color_discrete_map={'surf': '#1E88E5', 'ultimate': '#43A047'}
+)
         
         st.plotly_chart(fig, use_container_width=True)
         
@@ -579,19 +578,19 @@ with tabs[3]:
         avg_internet['avg_usage_gb'] = avg_internet['avg_usage'] / 1024
         
         fig = px.bar(
-            avg_internet,
-            x='month',
-            y='avg_usage_gb',
-            color='plan_name',
-            barmode='group',
-            title='Promedio de Uso de Internet por Plan y Mes',
-            labels={
-                'month': 'Mes',
-                'avg_usage_gb': 'Promedio de Uso (GB)',
-                'plan_name': 'Plan'
-            },
-            color_discrete_map={'surf': '#1E88E5', 'ultimate': '#43A047'}
-        )
+    avg_internet,
+    x=avg_internet['month'].astype(str),  # Conversión directa a string
+    y='avg_usage_gb',
+    color='plan_name',
+    barmode='group',
+    title='Promedio de Uso de Internet por Plan y Mes',
+    labels={
+        'x': 'Mes', 
+        'avg_usage_gb': 'Promedio de Uso (GB)',
+        'plan_name': 'Plan'
+    },
+    color_discrete_map={'surf': '#1E88E5', 'ultimate': '#43A047'}
+)
         
         st.plotly_chart(fig, use_container_width=True)
         
@@ -1067,7 +1066,7 @@ with tabs[6]:
     </div>
     """, unsafe_allow_html=True)
     
-    # Añadir una sección interactiva para probar diferentes escenarios
+    # sección interactiva para probar diferentes escenarios
     st.markdown("<h3 class='subsection-header'>Simulador de Escenarios</h3>", unsafe_allow_html=True)
     
     st.write("""
@@ -1137,11 +1136,11 @@ with tabs[6]:
         else:
             st.info("Ambos planes tienen el mismo costo para este patrón de uso.")
 
-# Información del creador y footer
+# Información 
 st.markdown("""
 ---
 <div style="text-align: center; padding: 1.5rem 0;">
-    <p>Desarrollado por [Tu Nombre] | Portfolio Data Science</p>
+    <p>Desarrollado por [RICARDO SALAZAR] | Portfolio Data Science</p>
     <p>Análisis basado en datos de la compañía de telefonía Megaline</p>
 </div>
 """, unsafe_allow_html=True)
